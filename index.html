@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Special Things</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      transition: background-color 0.5s ease;
+    }
+
+    header {
+      background: linear-gradient(to right, #4CAF50, #2196F3);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      transition: background 0.5s ease;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #444;
+    }
+
+    #content {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: background 0.5s ease;
+    }
+
+    #content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <h1>Special Things</h1>
+    <p id="subtitle">Explore amazing things about our world</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('cars')">Cars</a>
+    <a href="#" onclick="showSection('animals')">Animals</a>
+    <a href="#" onclick="showSection('trees')">Trees</a>
+  </nav>
+
+  <div id="content">
+    <!-- Content will be loaded here -->
+  </div>
+
+  <script>
+    const contentData = {
+      home: {
+        title: "Welcome to Our World",
+        subtitle: "Explore amazing things about our world",
+        text: "The world is full of wonders—cities, oceans, mountains, technology, and diverse cultures. This site is a place to learn about many special things around us.",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+        theme: "#f0f0f0",
+        headerColor: "#4CAF50"
+      },
+      cars: {
+        title: "Cars",
+        subtitle: "Speed, Power, and Design",
+        text: "Cars represent engineering excellence and personal freedom. From sports cars to electric vehicles, they shape how we move and live.",
+        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+        theme: "#e0f7fa",
+        headerColor: "#00796B"
+      },
+      animals: {
+        title: "Animals",
+        subtitle: "The Beauty of Wildlife",
+        text: "Animals are amazing creatures that live in forests, oceans, deserts, and even our homes. They play a vital role in Earth's balance.",
+        image: "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb",
+        theme: "#fff8e1",
+        headerColor: "#F57C00"
+      },
+      trees: {
+        title: "Trees",
+        subtitle: "Nature's Life Givers",
+        text: "Trees give us clean air, shelter, and beauty. They are essential to the environment and help fight climate change.",
+        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+        theme: "#e8f5e9",
+        headerColor: "#2E7D32"
+      }
+    };
+
+    function showSection(section) {
+      const data = contentData[section];
+      document.getElementById("main-header").style.background = data.headerColor;
+      document.body.style.backgroundColor = data.theme;
+      document.getElementById("subtitle").textContent = data.subtitle;
+      document.getElementById("content").innerHTML = `
+        <h2>${data.title}</h2>
+        <p>${data.text}</p>
+        <img src="${data.image}" alt="${section}">
+      `;
+    }
+
+    // Load home by default
+    showSection('home');
+  </script>
+</body>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    transition: background-color 0.5s ease;
+  }
+
+  header {
+    background: linear-gradient(to right, #4CAF50, #2196F3);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: background 0.5s ease;
+  }
+
+  nav {
+    background-color: #222;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    color: white;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    display: block;
+    flex: 1 1 auto;
+    text-align: center;
+    min-width: 25%;
+  }
+
+  nav a:hover {
+    background-color: #444;
+  }
+
+  #content {
+    padding: 1.5rem;
+    margin: auto;
+    max-width: 900px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: background 0.5s ease;
+  }
+
+  #content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      padding: 0.8rem;
+    }
+
+    #content {
+      padding: 1rem;
+    }
+  }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</html>
